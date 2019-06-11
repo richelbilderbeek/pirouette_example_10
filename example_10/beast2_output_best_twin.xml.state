@@ -1,18 +1,24 @@
 <itsabeastystatewerein version='2.0' sample='10000000'>
-<statenode id='Tree.t:twin'>(((0:0.4470546036886933,1:0.4470546036886933)8:0.47951964447562845,2:0.9265742481643218)7:0.2538976228946068,((3:0.19546180663448326,4:0.19546180663448326)6:0.08093484593757105,5:0.2763966525720543)9:0.9040752184868743)10:0.0</statenode>
-<statenode id='bPopSizes.t:twin'>bPopSizes.t:twin[5 1] (0.0,380000.0): 4.275292556103962 1.6882804938401224 0.5770211774894686 0.47694180865220354 0.04871546102197089 </statenode>
-<statenode id='bGroupSizes.t:twin'>bGroupSizes.t:twin[5 1] (-2147483647,2147483646): -26 44 62 -47 -28 </statenode>
+<statenode id='Tree.t:twin'>(((0:0.44657922708315,1:0.44657922708315)6:0.4829838633936795,2:0.9295630904768295)8:0.25238420307448384,((3:0.19649782506615243,4:0.19649782506615243)7:0.08020212699632334,5:0.2766999520624758)9:0.9052473414888376)10:0.0</statenode>
+<statenode id='kappa1.s:twin'>kappa1.s:twin[1 1] (0.0,Infinity): 1.0970711261796997 </statenode>
+<statenode id='kappa2.s:twin'>kappa2.s:twin[1 1] (0.0,Infinity): 1.113345901145245 </statenode>
+<statenode id='freqParameter.s:twin'>freqParameter.s:twin[4 1] (0.0,1.0): 0.2620949385300613 0.23729752236465212 0.24174162543433467 0.25886591367095213 </statenode>
+<statenode id='ePopSize.t:twin'>ePopSize.t:twin[1 1] (0.0,Infinity): 3.2487208875170435 </statenode>
+<statenode id='growthRate.t:twin'>growthRate.t:twin[1 1] (-Infinity,Infinity): 1.8158071731479533 </statenode>
 </itsabeastystatewerein>
 <!--
 {"operators":[
-{"id":"popSizesScaler.t:twin","p":0.75,"accept":23477,"reject":7531,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
-{"id":"groupSizesDelta.t:twin","p":1,"accept":10958,"reject":1627,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
-{"id":"BayesianSkylineTreeScaler.t:twin","p":0.5,"accept":979,"reject":5350,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
-{"id":"BayesianSkylineTreeRootScaler.t:twin","p":0.5,"accept":1443,"reject":4926,"acceptFC":0,"rejectFC":0,"rejectIv":961,"rejectOp":961},
-{"id":"BayesianSkylineUniformOperator.t:twin","p":"NaN","accept":11880,"reject":51263,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
-{"id":"BayesianSkylineSubtreeSlide.t:twin","p":1,"accept":5566,"reject":26058,"acceptFC":0,"rejectFC":0,"rejectIv":9459,"rejectOp":9459},
-{"id":"BayesianSkylineNarrow.t:twin","p":"NaN","accept":6263,"reject":25083,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
-{"id":"BayesianSkylineWide.t:twin","p":"NaN","accept":354,"reject":5995,"acceptFC":0,"rejectFC":0,"rejectIv":3518,"rejectOp":3518},
-{"id":"BayesianSkylineWilsonBalding.t:twin","p":"NaN","accept":162,"reject":6085,"acceptFC":0,"rejectFC":0,"rejectIv":3032,"rejectOp":3032}
+{"id":"ePopSizeScaler.t:twin","p":0.75,"accept":10210,"reject":2554,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"GrowthRateRandomWalk.t:twin","p":1,"accept":7446,"reject":5195,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentExponentialTreeScaler.t:twin","p":0.5,"accept":1891,"reject":10539,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentExponentialTreeRootScaler.t:twin","p":0.5,"accept":2466,"reject":10301,"acceptFC":0,"rejectFC":0,"rejectIv":2152,"rejectOp":2152},
+{"id":"CoalescentExponentialUniformOperator.t:twin","p":"NaN","accept":29903,"reject":96612,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentExponentialSubtreeSlide.t:twin","p":1,"accept":10663,"reject":52280,"acceptFC":0,"rejectFC":0,"rejectIv":18616,"rejectOp":18616},
+{"id":"CoalescentExponentialNarrow.t:twin","p":"NaN","accept":16060,"reject":47438,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentExponentialWide.t:twin","p":"NaN","accept":960,"reject":11551,"acceptFC":0,"rejectFC":0,"rejectIv":6849,"rejectOp":6849},
+{"id":"CoalescentExponentialWilsonBalding.t:twin","p":"NaN","accept":506,"reject":12175,"acceptFC":0,"rejectFC":0,"rejectIv":6280,"rejectOp":6280},
+{"id":"kappa1Scaler.s:twin","p":0.5,"accept":115,"reject":310,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"kappa2Scaler.s:twin","p":0.5,"accept":107,"reject":269,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"FrequenciesExchanger.s:twin","p":0.01,"accept":264,"reject":185,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0}
 ]}
 -->

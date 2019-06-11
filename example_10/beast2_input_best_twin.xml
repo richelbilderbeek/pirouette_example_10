@@ -39,7 +39,10 @@ name="alignment">
                 <alignment idref="twin"/>
             </taxonset>
         </tree>
-        <parameter id="popSize.t:twin" name="stateNode">0.3</parameter>
+        <parameter id="kappa1.s:twin" lower="0.0" name="stateNode">2.0</parameter>
+        <parameter id="kappa2.s:twin" lower="0.0" name="stateNode">2.0</parameter>
+        <parameter id="freqParameter.s:twin" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+        <parameter id="birthRate.t:twin" name="stateNode">1.0</parameter>
     </state>
 
     <init id="RandomTree.t:twin" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:twin" taxa="@twin">
@@ -50,12 +53,21 @@ name="alignment">
 
     <distribution id="posterior" spec="util.CompoundDistribution">
         <distribution id="prior" spec="util.CompoundDistribution">
-            <distribution id="CoalescentConstant.t:twin" spec="Coalescent">
-                <populationModel id="ConstantPopulation.t:twin" spec="ConstantPopulation" popSize="@popSize.t:twin"/>
-                <treeIntervals id="TreeIntervals.t:twin" spec="TreeIntervals" tree="@Tree.t:twin"/>
-            </distribution>
-            <prior id="PopSizePrior.t:twin" name="distribution" x="@popSize.t:twin">
-                <OneOnX id="OneOnX.100" name="distr"/>
+            <distribution id="YuleModel.t:twin" spec="beast.evolution.speciation.YuleModel" birthDiffRate="@birthRate.t:twin" tree="@Tree.t:twin"/>
+            <prior id="YuleBirthRatePrior.t:twin" name="distribution" x="@birthRate.t:twin">
+                <Uniform id="Uniform.100" name="distr" upper="Infinity"/>
+            </prior>
+            <prior id="kappa1Prior.s:twin" name="distribution" x="@kappa1.s:twin">
+                <LogNormal id="LogNormalDistributionModel.0" name="distr">
+                    <parameter id="RealParameter.0" estimate="false" name="M">1</parameter>
+                    <parameter id="RealParameter.1" estimate="false" lower="0" name="S" upper="Infinity">1.25</parameter>
+                </LogNormal>
+            </prior>
+            <prior id="kappa2Prior.s:twin" name="distribution" x="@kappa2.s:twin">
+                <LogNormal id="LogNormalDistributionModel.1" name="distr">
+                    <parameter id="RealParameter.2" estimate="false" name="M">1</parameter>
+                    <parameter id="RealParameter.3" estimate="false" lower="0" name="S" upper="Infinity">1.25</parameter>
+                </LogNormal>
             </prior>
         </distribution>
         <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
@@ -64,7 +76,9 @@ name="alignment">
                     <parameter id="mutationRate.s:twin" estimate="false" name="mutationRate">1.0</parameter>
                     <parameter id="gammaShape.s:twin" estimate="false" name="shape">1.0</parameter>
                     <parameter id="proportionInvariant.s:twin" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-                    <substModel id="JC69.s:twin" spec="JukesCantor"/>
+                    <substModel id="tn93.s:twin" spec="TN93" kappa1="@kappa1.s:twin" kappa2="@kappa2.s:twin">
+                        <frequencies id="estimatedFreqs.s:twin" spec="Frequencies" frequencies="@freqParameter.s:twin"/>
+                    </substModel>
                 </siteModel>
                 <branchRateModel id="StrictClock.c:twin" spec="beast.evolution.branchratemodel.StrictClockModel">
                     <parameter id="clockRate.c:twin" estimate="false" name="clock.rate">1.0</parameter>
@@ -73,21 +87,29 @@ name="alignment">
         </distribution>
     </distribution>
 
-    <operator id="PopSizeScaler.t:twin" spec="ScaleOperator" parameter="@popSize.t:twin" scaleFactor="0.75" weight="3.0"/>
+    <operator id="YuleBirthRateScaler.t:twin" spec="ScaleOperator" parameter="@birthRate.t:twin" scaleFactor="0.75" weight="3.0"/>
 
-    <operator id="CoalescentConstantTreeScaler.t:twin" spec="ScaleOperator" scaleFactor="0.5" tree="@Tree.t:twin" weight="3.0"/>
+    <operator id="YuleModelTreeScaler.t:twin" spec="ScaleOperator" scaleFactor="0.5" tree="@Tree.t:twin" weight="3.0"/>
 
-    <operator id="CoalescentConstantTreeRootScaler.t:twin" spec="ScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:twin" weight="3.0"/>
+    <operator id="YuleModelTreeRootScaler.t:twin" spec="ScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:twin" weight="3.0"/>
 
-    <operator id="CoalescentConstantUniformOperator.t:twin" spec="Uniform" tree="@Tree.t:twin" weight="30.0"/>
+    <operator id="YuleModelUniformOperator.t:twin" spec="Uniform" tree="@Tree.t:twin" weight="30.0"/>
 
-    <operator id="CoalescentConstantSubtreeSlide.t:twin" spec="SubtreeSlide" tree="@Tree.t:twin" weight="15.0"/>
+    <operator id="YuleModelSubtreeSlide.t:twin" spec="SubtreeSlide" tree="@Tree.t:twin" weight="15.0"/>
 
-    <operator id="CoalescentConstantNarrow.t:twin" spec="Exchange" tree="@Tree.t:twin" weight="15.0"/>
+    <operator id="YuleModelNarrow.t:twin" spec="Exchange" tree="@Tree.t:twin" weight="15.0"/>
 
-    <operator id="CoalescentConstantWide.t:twin" spec="Exchange" isNarrow="false" tree="@Tree.t:twin" weight="3.0"/>
+    <operator id="YuleModelWide.t:twin" spec="Exchange" isNarrow="false" tree="@Tree.t:twin" weight="3.0"/>
 
-    <operator id="CoalescentConstantWilsonBalding.t:twin" spec="WilsonBalding" tree="@Tree.t:twin" weight="3.0"/>
+    <operator id="YuleModelWilsonBalding.t:twin" spec="WilsonBalding" tree="@Tree.t:twin" weight="3.0"/>
+
+    <operator id="kappa1Scaler.s:twin" spec="ScaleOperator" parameter="@kappa1.s:twin" scaleFactor="0.5" weight="0.1"/>
+
+    <operator id="kappa2Scaler.s:twin" spec="ScaleOperator" parameter="@kappa2.s:twin" scaleFactor="0.5" weight="0.1"/>
+
+    <operator id="FrequenciesExchanger.s:twin" spec="DeltaExchangeOperator" delta="0.01" weight="0.1">
+        <parameter idref="freqParameter.s:twin"/>
+    </operator>
 
     <logger id="tracelog" fileName="twin.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
         <log idref="posterior"/>
@@ -95,8 +117,11 @@ name="alignment">
         <log idref="prior"/>
         <log idref="treeLikelihood.twin"/>
         <log id="TreeHeight.t:twin" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:twin"/>
-        <log idref="popSize.t:twin"/>
-        <log idref="CoalescentConstant.t:twin"/>
+        <log idref="kappa1.s:twin"/>
+        <log idref="kappa2.s:twin"/>
+        <log idref="freqParameter.s:twin"/>
+        <log idref="YuleModel.t:twin"/>
+        <log idref="birthRate.t:twin"/>
     </logger>
 
     <logger id="screenlog" logEvery="1000">
