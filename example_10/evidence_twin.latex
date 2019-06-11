@@ -1,0 +1,53 @@
+% latex table generated in R 3.6.0 by xtable 1.8-4 package
+% Tue Jun 11 12:14:34 2019
+\begin{table}[ht]
+\centering
+\begin{tabular}{lllrr}
+  \hline
+Site model & Clock model & Tree prior & log(evidence) & Weight \\ 
+  \hline
+GTR & RLN & BD & -7455.332 & 0.000 \\ 
+  GTR & RLN & CBS & -7401.367 & 0.000 \\ 
+  GTR & RLN & CCP & -7414.830 & 0.000 \\ 
+  GTR & RLN & CEP & -7414.358 & 0.000 \\ 
+  GTR & RLN & Yule & -7416.975 & 0.000 \\ 
+  GTR & Strict & BD & -7427.027 & 0.000 \\ 
+  GTR & Strict & CBS & -7413.122 & 0.000 \\ 
+  GTR & Strict & CCP & -7440.661 & 0.000 \\ 
+  GTR & Strict & CEP & -7438.866 & 0.000 \\ 
+  GTR & Strict & Yule & -7408.352 & 0.000 \\ 
+  HKY & RLN & BD & -7407.370 & 0.000 \\ 
+  HKY & RLN & CBS & -7413.863 & 0.000 \\ 
+  HKY & RLN & CCP & -7398.838 & 0.001 \\ 
+  HKY & RLN & CEP & -7413.634 & 0.000 \\ 
+  HKY & RLN & Yule & -7404.484 & 0.000 \\ 
+  HKY & Strict & BD & -7413.816 & 0.000 \\ 
+  HKY & Strict & CBS & -7405.983 & 0.000 \\ 
+  HKY & Strict & CCP & -7403.265 & 0.000 \\ 
+  HKY & Strict & CEP & -7402.860 & 0.000 \\ 
+  HKY & Strict & Yule & -7405.739 & 0.000 \\ 
+  JC & RLN & BD & -7400.534 & 0.000 \\ 
+  JC & RLN & CBS & -7406.212 & 0.000 \\ 
+  JC & RLN & CCP & -7403.435 & 0.000 \\ 
+  JC & RLN & CEP & -7401.059 & 0.000 \\ 
+  JC & RLN & Yule & -7400.218 & 0.000 \\ 
+  JC & Strict & BD & -7402.204 & 0.000 \\ 
+  JC & Strict & CBS & -7394.728 & 0.038 \\ 
+  JC & Strict & CCP & -7404.934 & 0.000 \\ 
+  JC & Strict & CEP &  & 0.000 \\ 
+  JC & Strict & Yule & -7396.541 & 0.006 \\ 
+  TN & RLN & BD & -7395.535 & 0.017 \\ 
+  TN & RLN & CBS & -7661.765 & 0.000 \\ 
+  TN & RLN & CCP & -7405.244 & 0.000 \\ 
+  TN & RLN & CEP & -7407.037 & 0.000 \\ 
+  TN & RLN & Yule & -7397.766 & 0.002 \\ 
+  TN & Strict & BD & -7408.678 & 0.000 \\ 
+  TN & Strict & CBS & -7416.178 & 0.000 \\ 
+  TN & Strict & CCP & -7418.750 & 0.000 \\ 
+  TN & Strict & CEP & -7408.095 & 0.000 \\ 
+  TN & Strict & Yule & -7391.515 & 0.936 \\ 
+   \hline
+\end{tabular}
+\caption{Evidences of example 5, twin tree} 
+\label{tab:evidences_example_5_twin}
+\end{table}

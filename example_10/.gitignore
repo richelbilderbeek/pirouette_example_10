@@ -16,3 +16,8 @@ beast2_*
 true.*
 error_*
 twin.posterior.*
+*.log
+*.trees
+*.xml.state
+*.xml
+Rplots.pdf
