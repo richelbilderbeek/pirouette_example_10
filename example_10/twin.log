@@ -3,22 +3,19 @@
 #
 #<?xml version="1.0" encoding="UTF-8" standalone="no"?><input id="posterior" spec="beast.core.util.CompoundDistribution">
 #    <distribution id="prior" spec="beast.core.util.CompoundDistribution">
-#        <distribution id="YuleModel.t:twin" spec="beast.evolution.speciation.YuleModel">
-#            <parameter id="birthRate.t:twin" name="birthDiffRate">1.0</parameter>
-#            <tree id="Tree.t:twin">
-#                <taxonset id="TaxonSet.twin" spec="beast.evolution.alignment.TaxonSet">
-#                </taxonset>
-#            </tree>
+#        <distribution id="CoalescentConstant.t:twin" spec="beast.evolution.tree.coalescent.Coalescent">
+#            <populationModel id="ConstantPopulation.t:twin" spec="beast.evolution.tree.coalescent.ConstantPopulation">
+#                <parameter id="popSize.t:twin" name="popSize">0.3</parameter>
+#            </populationModel>
+#            <treeIntervals id="TreeIntervals.t:twin" spec="beast.evolution.tree.coalescent.TreeIntervals">
+#                <tree id="Tree.t:twin">
+#                    <taxonset id="TaxonSet.twin" spec="beast.evolution.alignment.TaxonSet">
+#                    </taxonset>
+#                </tree>
+#            </treeIntervals>
 #        </distribution>
-#        <prior id="YuleBirthRatePrior.t:twin" name="distribution" x="@birthRate.t:twin">
-#            <Uniform id="Uniform.100" name="distr" upper="Infinity"/>
-#        </prior>
-#        <prior id="KappaPrior.s:twin" name="distribution">
-#            <parameter id="kappa.s:twin" lower="0.0" name="x">2.0</parameter>
-#            <LogNormal id="LogNormalDistributionModel.0" name="distr">
-#                <parameter estimate="false" id="RealParameter.0" name="M">1.0</parameter>
-#                <parameter estimate="false" id="RealParameter.1" lower="0.0" name="S" upper="Infinity">1.25</parameter>
-#            </LogNormal>
+#        <prior id="PopSizePrior.t:twin" name="distribution" x="@popSize.t:twin">
+#            <OneOnX id="OneOnX.100" name="distr"/>
 #        </prior>
 #    </distribution>
 #    <distribution id="likelihood" spec="beast.core.util.CompoundDistribution" useThreads="true">
@@ -27,11 +24,7 @@
 #                <parameter estimate="false" id="mutationRate.s:twin" name="mutationRate">1.0</parameter>
 #                <parameter estimate="false" id="gammaShape.s:twin" name="shape">1.0</parameter>
 #                <parameter estimate="false" id="proportionInvariant.s:twin" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
-#                <substModel id="hky.s:twin" kappa="@kappa.s:twin" spec="beast.evolution.substitutionmodel.HKY">
-#                    <frequencies id="estimatedFreqs.s:twin" spec="beast.evolution.substitutionmodel.Frequencies">
-#                        <parameter dimension="4" id="freqParameter.s:twin" lower="0.0" name="frequencies" upper="1.0">0.25</parameter>
-#                    </frequencies>
-#                </substModel>
+#                <substModel id="JC69.s:twin" spec="beast.evolution.substitutionmodel.JukesCantor"/>
 #            </siteModel>
 #            <branchRateModel id="StrictClock.c:twin" spec="beast.evolution.branchratemodel.StrictClockModel">
 #                <parameter estimate="false" id="clockRate.c:twin" name="clock.rate">1.0</parameter>
@@ -40,9 +33,9 @@
 #    </distribution>
 #</input>
 #
-Sample	NSlikelihood	posterior	likelihood	prior	treeLikelihood	TreeHeight	kappa	freqParameter.1	freqParameter.2	freqParameter.3	freqParameter.4	YuleModel	birthRate
-0	-14564.530960282897	-14555.456318159966	-14564.530960282897	9.074642122929856	-14564.530960282897	0.043307196662608946	2.3551341438245066	0.2633947034040322	0.25	0.2431427648649196	0.24346253173104818	11.079902446046807	14.081136439827663
-1	-13416.48248458551	-13408.128239868203	-13416.48248458551	8.354244717306084	-13416.48248458551	0.06394140840700481	1.5990729068667795	0.2760956309907876	0.2512489354905586	0.23009971473812024	0.24255571878053353	10.055834305752185	43.53003029219005
-2	-10385.550032568266	-10380.28118648871	-10385.550032568266	5.268846079556221	-10385.550032568266	0.14605243347779143	0.5807170989395793	0.2604145499822157	0.23611659106289842	0.24964917547572252	0.25381968347916334	6.629793786708287	8.262131444462272
-3	-9002.80130089017	-9006.24550264465	-9002.80130089017	-3.444201754478891	-9002.80130089017	0.42640285838967285	8.316588079436325	0.2652097500021042	0.24718455026993644	0.2624089349337213	0.225196764794238	0.21628848572163628	3.2305757407609583
-4	-8719.771377467525	-8731.938132522964	-8719.771377467525	-12.166755055438987	-8719.771377467525	2.4979387781451456	7.883140867942346	0.2571274033807108	0.26279543003869676	0.2610912864765407	0.21898588010405182	-8.597181012956863	0.28413186767869075
+Sample	NSlikelihood	posterior	likelihood	prior	treeLikelihood	TreeHeight	popSize	CoalescentConstant
+0	-16022.2731335192	-16010.172478332377	-16022.2731335192	12.10065518682298	-16022.2731335192	0.02686899652015725	0.09926501154624967	9.790693065807307
+1	-12550.739133083674	-12542.082213033764	-12550.739133083674	8.656920049909857	-12550.739133083674	0.11781159157233663	0.13067480555466834	6.62187660751847
+2	-10473.376374868978	-10473.949530134338	-10473.376374868978	-0.57315526535911	-10473.376374868978	0.9782789964294976	0.5987626074581145	-1.0860453395403256
+3	-10300.444630685517	-10304.840702123132	-10300.444630685517	-4.396071437616161	-10300.444630685517	1.848684054743507	1.0661546902732204	-4.3320130095736955
+4	-8317.762299163698	-8343.389619534659	-8317.762299163698	-25.627320370961048	-8317.762299163698	24.347313099763948	19.8980667954973	-22.636697789904485

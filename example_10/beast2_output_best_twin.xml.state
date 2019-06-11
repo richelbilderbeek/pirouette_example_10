@@ -1,22 +1,18 @@
 <itsabeastystatewerein version='2.0' sample='10000000'>
-<statenode id='Tree.t:twin'>(((0:0.44514690488571945,1:0.44514690488571945)8:0.4882044331247823,2:0.9333513380105017)6:0.24361708885257183,((3:0.1950878000962523,4:0.1950878000962523)7:0.08061934414940683,5:0.2757071442456591)9:0.9012612826174144)10:0.0</statenode>
-<statenode id='kappa.s:twin'>kappa.s:twin[1 1] (0.0,Infinity): 1.086056374768833 </statenode>
-<statenode id='freqParameter.s:twin'>freqParameter.s:twin[4 1] (0.0,1.0): 0.26127683983354216 0.2370048343293766 0.24215514836701812 0.2595631774700631 </statenode>
-<statenode id='ePopSize.t:twin'>ePopSize.t:twin[1 1] (0.0,Infinity): 19.799586828016878 </statenode>
-<statenode id='growthRate.t:twin'>growthRate.t:twin[1 1] (-Infinity,Infinity): 4.4591077775699555 </statenode>
+<statenode id='Tree.t:twin'>(((0:0.4470546036886933,1:0.4470546036886933)8:0.47951964447562845,2:0.9265742481643218)7:0.2538976228946068,((3:0.19546180663448326,4:0.19546180663448326)6:0.08093484593757105,5:0.2763966525720543)9:0.9040752184868743)10:0.0</statenode>
+<statenode id='bPopSizes.t:twin'>bPopSizes.t:twin[5 1] (0.0,380000.0): 4.275292556103962 1.6882804938401224 0.5770211774894686 0.47694180865220354 0.04871546102197089 </statenode>
+<statenode id='bGroupSizes.t:twin'>bGroupSizes.t:twin[5 1] (-2147483647,2147483646): -26 44 62 -47 -28 </statenode>
 </itsabeastystatewerein>
 <!--
 {"operators":[
-{"id":"ePopSizeScaler.t:twin","p":0.75,"accept":8052,"reject":2148,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
-{"id":"GrowthRateRandomWalk.t:twin","p":1,"accept":6828,"reject":3383,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
-{"id":"CoalescentExponentialTreeScaler.t:twin","p":0.5,"accept":1296,"reject":8906,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
-{"id":"CoalescentExponentialTreeRootScaler.t:twin","p":0.5,"accept":1961,"reject":8323,"acceptFC":0,"rejectFC":0,"rejectIv":1754,"rejectOp":1754},
-{"id":"CoalescentExponentialUniformOperator.t:twin","p":"NaN","accept":22784,"reject":78535,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
-{"id":"CoalescentExponentialSubtreeSlide.t:twin","p":1,"accept":6047,"reject":45034,"acceptFC":0,"rejectFC":0,"rejectIv":16593,"rejectOp":16593},
-{"id":"CoalescentExponentialNarrow.t:twin","p":"NaN","accept":10995,"reject":39656,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
-{"id":"CoalescentExponentialWide.t:twin","p":"NaN","accept":615,"reject":9656,"acceptFC":0,"rejectFC":0,"rejectIv":5668,"rejectOp":5668},
-{"id":"CoalescentExponentialWilsonBalding.t:twin","p":"NaN","accept":343,"reject":9750,"acceptFC":0,"rejectFC":0,"rejectIv":4905,"rejectOp":4905},
-{"id":"KappaScaler.s:twin","p":0.5,"accept":84,"reject":256,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
-{"id":"FrequenciesExchanger.s:twin","p":0.01,"accept":200,"reject":148,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0}
+{"id":"popSizesScaler.t:twin","p":0.75,"accept":23477,"reject":7531,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"groupSizesDelta.t:twin","p":1,"accept":10958,"reject":1627,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"BayesianSkylineTreeScaler.t:twin","p":0.5,"accept":979,"reject":5350,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"BayesianSkylineTreeRootScaler.t:twin","p":0.5,"accept":1443,"reject":4926,"acceptFC":0,"rejectFC":0,"rejectIv":961,"rejectOp":961},
+{"id":"BayesianSkylineUniformOperator.t:twin","p":"NaN","accept":11880,"reject":51263,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"BayesianSkylineSubtreeSlide.t:twin","p":1,"accept":5566,"reject":26058,"acceptFC":0,"rejectFC":0,"rejectIv":9459,"rejectOp":9459},
+{"id":"BayesianSkylineNarrow.t:twin","p":"NaN","accept":6263,"reject":25083,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"BayesianSkylineWide.t:twin","p":"NaN","accept":354,"reject":5995,"acceptFC":0,"rejectFC":0,"rejectIv":3518,"rejectOp":3518},
+{"id":"BayesianSkylineWilsonBalding.t:twin","p":"NaN","accept":162,"reject":6085,"acceptFC":0,"rejectFC":0,"rejectIv":3032,"rejectOp":3032}
 ]}
 -->
