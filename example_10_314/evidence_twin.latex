@@ -1,0 +1,52 @@
+% latex table generated in R 3.6.0 by xtable 1.8-4 package
+% Tue Jun 18 15:55:13 2019
+\begin{table}[ht]
+\centering
+\begin{tabular}{lllrr}
+  \hline
+Site model & Clock model & Tree prior & log(evidence) & Weight \\ 
+  \hline
+GTR & RLN & BD & -6389.775 & 0.000 \\ 
+  GTR & RLN & CBS & -6400.406 & 0.000 \\ 
+  GTR & RLN & CCP & -6393.508 & 0.000 \\ 
+  GTR & RLN & CEP & -6386.220 & 0.000 \\ 
+  GTR & RLN & Yule & -6391.757 & 0.000 \\ 
+  GTR & Strict & BD & -6378.620 & 0.000 \\ 
+  GTR & Strict & CBS & -6405.943 & 0.000 \\ 
+  GTR & Strict & CCP & -6400.096 & 0.000 \\ 
+  GTR & Strict & CEP & -6385.995 & 0.000 \\ 
+  GTR & Strict & Yule & -6396.440 & 0.000 \\ 
+  HKY & RLN & BD & -6377.866 & 0.000 \\ 
+  HKY & RLN & CBS & -6391.054 & 0.000 \\ 
+  HKY & RLN & CCP & -6398.601 & 0.000 \\ 
+  HKY & RLN & CEP & -6388.243 & 0.000 \\ 
+  HKY & RLN & Yule & -6368.677 & 0.431 \\ 
+  HKY & Strict & BD & -6394.680 & 0.000 \\ 
+  HKY & Strict & CBS & -6392.018 & 0.000 \\ 
+  HKY & Strict & CCP & -6382.197 & 0.000 \\ 
+  HKY & Strict & CEP & -6381.211 & 0.000 \\ 
+  HKY & Strict & Yule & -6392.564 & 0.000 \\ 
+  JC & RLN & BD & -6368.832 & 0.369 \\ 
+  JC & RLN & CBS & -6382.687 & 0.000 \\ 
+  JC & RLN & CCP & -6373.080 & 0.005 \\ 
+  JC & RLN & CEP & -6372.560 & 0.009 \\ 
+  JC & RLN & Yule & -6372.550 & 0.009 \\ 
+  JC & Strict & BD & -6374.060 & 0.002 \\ 
+  JC & Strict & CBS & -6371.283 & 0.032 \\ 
+  JC & Strict & CCP & -6370.252 & 0.089 \\ 
+  JC & Strict & CEP & -6371.252 & 0.033 \\ 
+  JC & Strict & Yule & -6373.703 & 0.003 \\ 
+  TN & RLN & BD & -6377.225 & 0.000 \\ 
+  TN & RLN & CBS & -6373.297 & 0.004 \\ 
+  TN & RLN & CCP & -6385.214 & 0.000 \\ 
+  TN & RLN & CEP & -6382.101 & 0.000 \\ 
+  TN & RLN & Yule & -6383.418 & 0.000 \\ 
+  TN & Strict & BD & -6379.501 & 0.000 \\ 
+  TN & Strict & CBS & -6395.081 & 0.000 \\ 
+  TN & Strict & CCP & -6372.179 & 0.013 \\ 
+  TN & Strict & CEP & -6381.104 & 0.000 \\ 
+  TN & Strict & Yule & -6393.471 & 0.000 \\ 
+   \hline
+\end{tabular}
+\caption{Evidences for twin phylogeny} 
+\end{table}
