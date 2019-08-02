@@ -1,5 +1,5 @@
 language: r
-dist: xenial
+dist: bionic
 cache: packages
 
 r_packages:
@@ -15,6 +15,7 @@ r_github_packages:
   - jimhester/covr
   - jimhester/lintr
   - ropensci/beautier
+  - ropensci/tracerer
   - ropensci/beastier
   - ropensci/mauricer
   - ropensci/babette
@@ -22,6 +23,7 @@ r_github_packages:
   - richelbilderbeek/ribir
   - richelbilderbeek/becosys
   - richelbilderbeek/pirouette@richel
+  - richelbilderbeek/peregrine
   - MangoTheCat/goodpractice
   - KlausVigo/phangorn
   - ropensci/spelling
