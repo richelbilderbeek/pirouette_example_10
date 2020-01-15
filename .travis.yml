@@ -28,10 +28,8 @@ before_script:
   - Rscript -e "mauricer::install_beast2_pkg(\"NS\")"
 
 script:
-  # Delete all previous results
-  - rm -rf example_10_314
-  # Go!
-  - travis_wait 60 Rscript example_10.R
+  - # Go!
+  - travis_wait 60 ./scripts/rerun.sh
 
 after_success:
   - cd ~/GitHubs/pirouette_article; find .
