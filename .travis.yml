@@ -31,8 +31,13 @@ before_script:
   - Rscript -e "mauricer::install_beast2_pkg(\"NS\")"
 
 script:
-  - # Go!
   - travis_wait 60 ./scripts/rerun.sh
 
 after_success:
-  - cd ~/GitHubs/pirouette_article; find .
+  - Rscript -e "mcbette::mcbette_report()"
+  - find .
+
+after_failure:
+  - Rscript -e "mcbette::mcbette_report()"
+  - find .
+
