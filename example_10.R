@@ -1,62 +1,35 @@
+# Example                                                       |Phylogeny|Gen|Cand|Twin|TTM|DSL|STRAF|STWAF|Err |[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)                                                                                                 |[![AppVeyor logo](pics/AppVeyor.png)](https://www.appveyor.com)
+# --------------------------------------------------------------|---------|---|----|----|---|---|-----|-----|----|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# [10](https://github.com/richelbilderbeek/pirouette_example_10)|Fict     |N  |Y   |Y   |BD |1k |STD  |STDEQ|nLTT|[![Build Status](https://travis-ci.org/richelbilderbeek/pirouette_example_10.svg?branch=master)](https://travis-ci.org/richelbilderbeek/pirouette_example_10) | -
 # Works under Linux and MacOS only
+#
+# Difference from standard: 
+# - no generative model
+#
 
 library(pirouette)
 suppressMessages(library(ggplot2))
 
-root_folder <- getwd()
+################################################################################
+# Constants
+################################################################################
+is_testing <- is_on_travis()
 example_no <- 10
 rng_seed <- 314
-example_folder <- file.path(root_folder, paste0("example_", example_no, "_", rng_seed))
-dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
-setwd(example_folder)
-set.seed(rng_seed)
-testit::assert(is_beast2_installed())
+folder_name <- paste0("example_", example_no, "_", rng_seed)
+
 phylogeny  <- ape::read.tree(
   text = "(((A:8, B:8):1, C:9):1, ((D:8, E:8):1, F:9):1);"
 )
 
-alignment_params <- create_alignment_params(
-  sim_tral_fun = get_sim_tral_with_std_nsm_fun(
-    mutation_rate = 0.1
-  ),
-  root_sequence = create_blocked_dna(length = 1000),
-  rng_seed = rng_seed
+pir_params <- create_std_pir_params(
+  folder_name = folder_name
 )
+stop("Remove generative experiment here")
 
-# All experiments
-candidate_experiments <- create_all_experiments()
-check_experiments(candidate_experiments)
-
-experiments <- candidate_experiments
-
-# Set the RNG seed
-for (i in seq_along(experiments)) {
-  experiments[[i]]$beast2_options$rng_seed <- rng_seed
+if (is_testing) {
+  pir_params <- shorten_pir_params(pir_params)
 }
-
-check_experiments(experiments)
-
-# Shorter on Travis
-if (is_on_travis()) {
-  for (i in seq_along(experiments)) {
-    experiments[[i]]$inference_model$mcmc$chain_length <- 3000
-    experiments[[i]]$inference_model$mcmc$store_every <- 1000
-    experiments[[i]]$est_evidence_mcmc$chain_length <- 3000
-    experiments[[i]]$est_evidence_mcmc$store_every <- 1000
-    experiments[[i]]$est_evidence_mcmc$epsilon <- 100.0
-  }
-}
-
-pir_params <- create_pir_params(
-  alignment_params = alignment_params,
-  experiments = experiments,
-  twinning_params = create_twinning_params(
-    rng_seed_twin_tree = rng_seed,
-    rng_seed_twin_alignment = rng_seed
-  )
-)
-
-rm_pir_param_files(pir_params)
 
 errors <- pir_run(
   phylogeny,
