@@ -3,7 +3,7 @@
 # [10](https://github.com/richelbilderbeek/pirouette_example_10)|Fict     |N  |Y   |Y   |BD |1k |STD  |STDEQ|nLTT|[![Build Status](https://travis-ci.org/richelbilderbeek/pirouette_example_10.svg?branch=master)](https://travis-ci.org/richelbilderbeek/pirouette_example_10) | -
 # Works under Linux and MacOS only
 #
-# Difference from standard: 
+# Difference from standard:
 # - no generative model
 #
 library(pirouette)
@@ -23,7 +23,8 @@ phylogeny  <- ape::read.tree(
 pir_params <- create_std_pir_params(
   folder_name = folder_name
 )
-stop("Remove generative experiment here")
+# Remove generative experiment
+pir_params$experiments <- pir_params$experiments[-1]
 if (is_testing) {
   pir_params <- shorten_pir_params(pir_params)
 }
